@@ -7,6 +7,7 @@ import { setUser, setTempUser } from '../redux/userSlice';
 import { Link, Navigate } from 'react-router-dom'
 import { Checkbox, FormControlLabel } from '@mui/material';
 import { setPage } from "../redux/pageSlice";
+import { setToken } from '../redux/tokenSlice';
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -35,6 +36,7 @@ export default function Login() {
               // Dispatch an action for rememberMe being unchecked
               dispatch(setTempUser(response.data));
             }
+            dispatch(setToken(response.data.token))
           setRedirect(true)
         } catch (error) {
           alert("Username or Password is incorrect, Try again.")

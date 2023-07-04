@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetUser } from '../redux/userSlice';
-import axios from 'axios';
 import { toggleSettings } from '../redux/settingsSlice';
+import { resetToken } from '../redux/tokenSlice';
 
 const Header = () => {
   // Retrieve data from the Redux store
@@ -13,11 +13,11 @@ const Header = () => {
   const dispatch = useDispatch();
 
   // Function to handle logging out as a user
-  const handleLogout = async () => {
-    // Make a POST request to log out the user
-    await axios.post('/users/logout');
-    // Dispatch the resetUser action to clear user data in Redux store
+  const handleLogout = () => {
+
+    // Dispatch the resetUser and resetToken action to clear user data in Redux store
     dispatch(resetUser());
+    dispatch(resetToken());
   };
 
   return (
