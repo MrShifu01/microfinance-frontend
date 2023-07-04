@@ -31,11 +31,10 @@ export default function Login() {
               // Check if rememberMe is checked and dispatch accordingly
             if (rememberMe) {
               // Dispatch an action for rememberMe being checked
-              console.log(response)
-              dispatch(setUser(response.data));
+              dispatch(setUser(response.data.userDoc));
             } else {
               // Dispatch an action for rememberMe being unchecked
-              dispatch(setTempUser(response.data));
+              dispatch(setTempUser(response.data.userDoc));
             }
             dispatch(setToken(response.data.token))
           setRedirect(true)
