@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import IndexPage from './pages/IndexPage';
 import AdminPage from './pages/AdminPage';
 import axios from 'axios';
@@ -8,12 +9,26 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 
-// Configure axios with base URL and credentials
 
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
-axios.defaults.withCredentials = true;
+
 
 function App() {
+  const [token, setToken] = useState('')
+
+  useEffect(() => {
+    const token = document.cookie.split('; ').find(row => row.startsWith('token='));
+    if (token) {
+      const [, tokenValue] = token.split('=');
+      setToken(tokenValue);
+    }
+  }, []);
+
+    // Configure axios with base URL and credentials
+
+    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+    axios.defaults.withCredentials = true;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}> {/* Wrap the routes with a Layout component */}
