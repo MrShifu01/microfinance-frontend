@@ -9,9 +9,6 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 
-
-
-
 function App() {
   const [token, setToken] = useState('')
 
@@ -28,6 +25,7 @@ function App() {
     axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
     axios.defaults.withCredentials = true;
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    console.log(token)
   
   return (
     <Routes>
