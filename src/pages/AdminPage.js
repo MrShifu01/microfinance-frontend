@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setClients } from '../redux/clientsSlice';
 import { setLoans } from '../redux/loansSlice';
 import { setPage } from '../redux/pageSlice';
