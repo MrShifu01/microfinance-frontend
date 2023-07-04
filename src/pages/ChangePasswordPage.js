@@ -76,7 +76,7 @@ export default function ChangePasswordPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button
-          className="bg-primary w-20 mx-auto rounded-lg my-2"
+          className="bg-blue-500 py-1 px-3 w-20 mx-auto rounded-lg my-2"
           onClick={(ev) => handleChangePassword(ev, newPassword, confirmPassword)}
         >
           Submit
