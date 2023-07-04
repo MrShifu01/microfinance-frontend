@@ -31,6 +31,7 @@ export default function Login() {
               // Check if rememberMe is checked and dispatch accordingly
             if (rememberMe) {
               // Dispatch an action for rememberMe being checked
+              console.log(response)
               dispatch(setUser(response.data));
             } else {
               // Dispatch an action for rememberMe being unchecked
