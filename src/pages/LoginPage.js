@@ -37,7 +37,7 @@ export default function Login() {
             }
           setRedirect(true)
         } catch (error) {
-          alert("fail")
+          alert("Username or Password is incorrect, Try again.")
         }
     }
 

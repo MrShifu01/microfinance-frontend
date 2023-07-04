@@ -9,7 +9,8 @@ import LoginPage from './pages/LoginPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 
 // Configure axios with base URL and credentials
-axios.defaults.baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 axios.defaults.withCredentials = true;
 
 function App() {
